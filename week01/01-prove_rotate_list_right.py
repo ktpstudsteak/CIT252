@@ -18,17 +18,13 @@ def rotate_list_right(data, amount):
     of amount will be in the range of 1 and 
     len(data).
     """ 
-    data_list = []
-
-    for range(len(data)) - amount, len(lists)):
-        data_list.append(data[item])
-
-    for item in range(0, len(data) - amount):
-        data_list.append(data[item])
-
+    #pop out the number and append it to the front for x amount of times. That will give you the proper list
+    data_list = data
     
-    return data_list
+    for x in range (amount):
+        data_list.pop(amount).insert(0)
 
+    return data_list 
 print(rotate_list_right([1,2,3,4,5,6,7,8,9],1)) # [9, 1, 2, 3, 4, 5, 6, 7, 8]
 print(rotate_list_right([1,2,3,4,5,6,7,8,9],5)) # [5, 6, 7, 8, 9, 1, 2, 3, 4]
 print(rotate_list_right([1,2,3,4,5,6,7,8,9],9)) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
