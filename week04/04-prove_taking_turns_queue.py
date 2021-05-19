@@ -118,6 +118,10 @@ class Taking_Turns_Queue:
             if person.turns > 1:  
                 person.turns -= 1 
                 self.people.enqueue(person)
+            elif person.turns <= 0:
+                self.people.enqueue(person)
+
+
             print(person.name)
 
     def __len__(self):
