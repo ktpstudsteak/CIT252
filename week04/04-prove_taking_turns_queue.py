@@ -23,8 +23,8 @@ class Queue:
         """
         Add an item to the queue
         """
-        self.queue.insert(0, value)
-
+        # Original self.queue.insert(0, value)
+        self.queue.append(value)
     def dequeue(self):
         """
         Remove the next item from the queue. 
