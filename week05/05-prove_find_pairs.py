@@ -26,6 +26,19 @@ def find_pairs(words):
     it would not match anything else (remember no the assumption above
     that there were no duplicates) and therefore should not be displayed.
     """    
+    """
+    FOR value in values
+        IF value[::-1] is MEMBER of set
+            print(value) + "&" + print(value[::-1])
+            print(f"{value} & {value[set1]}" ,end="")
+            Deal with formatting with multiple outputs and 
+    """
+
+    set1 = set()
+    for value in words:
+        if value[::-1] in set1: # is in words
+            print(f"{value} & {value[::-1]}")
+        set1.add(value)   
     pass
 
 find_pairs(["am","at","ma","if","fi"])      # ma & am, fi & if

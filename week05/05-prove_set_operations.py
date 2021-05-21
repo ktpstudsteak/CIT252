@@ -15,7 +15,14 @@ def intersection(set1, set2):
     operators (+, -, *, &, |) and functions (intersection, union) 
     that are built-in to Python.
     """
-    pass
+    # if member in both add to set3
+    set3 = set()
+
+    for value in set1:
+        if value in set2:
+            set3.add(value)
+   
+    return set3 
 
 def union(set1, set2):
     """
@@ -23,7 +30,17 @@ def union(set1, set2):
     from both sets.   Do not use the set operators (+, -, *, &, |)
     and functions (intersection, union) that are built-in to Python.
     """
-    pass
+    #Create result set
+    set3 = set()
+
+    
+    for value in set1:
+        set3.add(value)
+
+    for value in set2:
+        set3.add(value)
+
+    return set3
 
 s1 = {1,2,3,4,5}
 s2 = {4,5,6,7,8}
