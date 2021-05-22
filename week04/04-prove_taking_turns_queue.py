@@ -23,8 +23,8 @@ class Queue:
         """
         Add an item to the queue
         """
-        # Original self.queue.insert(0, value)
-        self.queue.append(value)
+        self.queue.insert(0, value)
+
     def dequeue(self):
         """
         Remove the next item from the queue. 
@@ -118,10 +118,6 @@ class Taking_Turns_Queue:
             if person.turns > 1:  
                 person.turns -= 1 
                 self.people.enqueue(person)
-            elif person.turns <= 0:
-                self.people.enqueue(person)
-
-
             print(person.name)
 
     def __len__(self):
