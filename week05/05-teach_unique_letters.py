@@ -5,13 +5,14 @@ CSE212
 
 It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
 to post it online.  Storage into a personal and private repository (e.g. private
-GitHub repository, unshared Google Drive folder) is acceptable.
+GitHub repository, unshared Google Drive folder) is acceptable. 
 """
 
 def unique_letters(text):
     """ 
     Determine if there are any duplicate letters in the text provided
     """
+    
 
     # Compare all letters to all other letters
     for i in range(len(text)):  
@@ -30,3 +31,10 @@ print(unique_letters(test2))
 
 test3 = "" 
 print(unique_letters(test3))          # Expect True because its an empty string
+
+    set1 = set()
+    for value in words:
+        if value[::-1] in set1: # is in words
+            print(f"'{value}' is a duplicate.")
+        set1.add(value)   
+
