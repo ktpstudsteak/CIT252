@@ -180,63 +180,46 @@ class Maze:
     then the 'curr_x' and 'curr_y' values should be changed.
     """
 
-    def __init__(self, maze_map):
+    def __init__(self, maze_map : dict):
         """
         Initialize the map.  We assume that (1,1) is a valid location in
         the maze.
         """
-        self.maze_map = maze_map
-        self.curr_x = 1
-        self.curr_y = 1
+        self.maze_map : dict = maze_map
+        self.curr_x : int = 1
+        self.curr_y : int = 1
 
     def move_left(self):
         """
         Check to see if you can move left.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        if self.curr_x < 1:
-            print("Can't go that way!")
-        
-        else:
-            self.curr_x -= 1
-        # pass
+        new_pos : tuple = (self.curr_x - 1, self.curr_y)
+        self.curr_x -= 1 if self.maze_map[new_pos][0] else print('Error')
 
     def move_right(self):
         """
         Check to see if you can move right.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """     
-        if self.curr_x > 6:
-            print("Can't go that way!")
-        
-        else:
-            self.curr_x += 1
-        # pass
+        new_pos : tuple = (self.curr_x + 1, self.curr_y)
+        self.curr_x -= 1 if self.maze_map[new_pos][1] else print('Error')
 
     def move_up(self):
         """
         Check to see if you can move up.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        if self.curr_y < 1:
-            print("Can't go that way!")
-        
-        else:
-            self.curr_y -= 1
-        
-        # pass
+        new_pos : tuple = (self.curr_x, self.curr_y + 1)
+        self.curr_x -= 1 if self.maze_map[new_pos][2] else print('Error')
 
     def move_down(self):
         """
         Check to see if you can move down.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        if self.curr_y > 6:
-            print("Can't go that way!")
-        
-        else:
-            self.curr_y -= 1
-        # pass
+        new_pos : tuple = (self.curr_x, self.curr_y - 1)
+        self.curr_x -= 1 if self.maze_map[new_pos][3] else print('Error')
     
     def show_status(self):
         print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
@@ -306,7 +289,7 @@ maze.show_status() # Should be at (6,6)
 # Problem 5 #
 #############
 
-import requests  
+import requests
 
 def earthquake_daily_summary():
     """

@@ -1,48 +1,47 @@
-def is_anagram(word1 : str, word2 : str):
+#############
+# Problem 5 #
+#############
+
+import requests
+import json
+
+def earthquake_daily_summary():
     """
-    Determine if 'word1' and 'word2' are anagrams.  An anagram
-    is when the same letters in a word are re-organized into a 
-    new word.  A Python dictionary is used to solve the problem.
-
-    Examples:
-    is_anagram("CAT","ACT") would return True
-    is_anagram("DOG","GOOD") would return False because GOOD has 2 O's
-
-    Important Note: When determining if two words are anagrams, you
-    should ignore any spaces.  You should also ignore cases.  For 
-    example, 'Ab' and 'Ba' should be considered anagrams
-
-    Reminder: You can access a letter by index in a Python string by 
-    using the [] notation.
-
-    ** CONVERT TO ONE CASE TO MAKE CASE INSENSITIVE **
+    This function will read JSON (Javascrip Object Notation) data from the 
+    United States Geological Service (USGS) consisting of earthquake data.
+    The data will include all earthquakes in the current day.
     
-    add letter vals to dictionaty and subtract them from the dictionary
-    if any left over its not an anagram    
+    JSON data is organized into a dictionary.  After reading the data using
+    the 'requests' library, this function will print out a list of all
+    earthquake locations ('place' attribute) and magnitudes ('mag' attribute).
+    Additional information about the format of the JSON data can be found 
+    at this website:  
 
-    CAT = [C, A, T]
-
-    ACT = -A , -C, -T
-
+    https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+        
+    To install the requests library, run:
+       If using virtual environment: pip install requests
+       If using Windows: py -m pip install requests
+       If using Mac: pip3 install requests
+    """    
+    req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
+    data = req.json() # The .json() function will convert the json data from the server to a dictionary
     
-    """
-    word_list = lambda words : [word.lower() for word in words if word != ' ']
-    word_one  = word_list(word1)
-    word_two  = word_list(word2)
+    for key, value in data.items():
+        print(key, ' : ', value)
 
-    return True if sorted(word_one) == sorted(word_two) else False
-
-
+        
+        
 
 # Sample Test Cases (may not be comprehensive) 
-print("\n=========== PROBLEM 3 TESTS ===========")
-print(is_anagram("CAT","ACT")) # True
-print(is_anagram("DOG", "GOOD")) # False
-print(is_anagram("AABBCCDD", "ABCD")) # False
-print(is_anagram("ABCCD","ABBCD")) # False
-print(is_anagram("BC","AD")) # False
-print(is_anagram("Ab","Ba")) # True
-print(is_anagram("A Decimal Point", "Im a Dot in Place"))  # True
-print(is_anagram("tom marvolo riddle", "i am lord voldemort")) # True
-print(is_anagram("Eleven plus Two", "Twelve Plus One")) # True
-print(is_anagram("Eleven plus One", "Twelve Plus One")) # False
+print("\n=========== PROBLEM 5 TESTS ===========")
+earthquake_daily_summary()
+
+# Sample output from the function.  Number of earthquakes, places, and magnitudes will vary.
+
+# 1km NE of Pahala, Hawaii - Mag 2.36
+# 58km NW of Kandrian, Papua New Guinea - Mag 4.5
+# 16km NNW of Truckee, California - Mag 0.7
+# 9km S of Idyllwild, CA - Mag 0.25
+# 14km SW of Searles Valley, CA - Mag 0.36
+# 4km SW of Volcano, Hawaii - Mag 1.99
