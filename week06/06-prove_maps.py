@@ -129,7 +129,17 @@ def is_anagram(word1, word2):
     using the [] notation.
 
     ** CONVERT TO ONE CASE TO MAKE CASE INSENSITIVE **
+    
+    add letter vals to dictionaty and subtract them from the dictionary
+    if any left over its not an anagram    
+
     """
+    words = dict()
+
+    # Add word1 to the dictionary and get its chars in there, will be subtracted later
+    
+
+    
     pass
 
 # Sample Test Cases (may not be comprehensive) 
