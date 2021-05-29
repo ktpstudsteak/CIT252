@@ -82,14 +82,23 @@ def summarize_degrees(filename):
     with open(filename) as file_in:
         for line in file_in:
             fields = line.split(",") 
+            
+            if fields[3] in degrees:
+                degrees[fields[3]] +=1
+            
+            else:
+                degrees[fields[3]] = 1
 
-            # ADD YOUR CODE HERE
+                # for fields[3] in fields:
+                    # degrees[fields[3]] = 1
+    
+                          
 
-    return degrees
+        return degrees
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 2 TESTS ===========")
-print(summarize_degrees("census.txt")) # You might need to add a path for the file
+print(summarize_degrees("week06\census.txt")) # You might need to add a path for the file
 # Results may be in a different order:
 # {'Bachelors': 5355, 'HS-grad': 10501, '11th': 1175, 
 # 'Masters': 1723, '9th': 514, 'Some-college': 7291, 
@@ -118,6 +127,8 @@ def is_anagram(word1, word2):
 
     Reminder: You can access a letter by index in a Python string by 
     using the [] notation.
+
+    ** CONVERT TO ONE CASE TO MAKE CASE INSENSITIVE **
     """
     pass
 
