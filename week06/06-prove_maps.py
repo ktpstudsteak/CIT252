@@ -133,16 +133,17 @@ def is_anagram(word1, word2):
     add letter vals to dictionaty and subtract them from the dictionary
     if any left over its not an anagram    
 
+    CAT = [C, A, T]
+
+    ACT = -A , -C, -T
+
+    
     """
-    split1 = [char for char in word1]
+    word_list = lambda words : [word.lower() for word in words if word != ' ']
+    word_one  = word_list(word1)
+    word_two  = word_list(word2)
 
-    words = dict()
-
-    # Add word1 to the dictionary and get its chars in there, will be subtracted later
-    words[word1] = split1
-    
-    
-    pass
+    return True if sorted(word_one) == sorted(word_two) else False
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 3 TESTS ===========")
@@ -193,28 +194,49 @@ class Maze:
         Check to see if you can move left.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        pass
+        if self.curr_x < 1:
+            print("Can't go that way!")
+        
+        else:
+            self.curr_x -= 1
+        # pass
 
     def move_right(self):
         """
         Check to see if you can move right.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
-        """        
-        pass
+        """     
+        if self.curr_x > 6:
+            print("Can't go that way!")
+        
+        else:
+            self.curr_x += 1
+        # pass
 
     def move_up(self):
         """
         Check to see if you can move up.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        pass
+        if self.curr_y < 1:
+            print("Can't go that way!")
+        
+        else:
+            self.curr_y -= 1
+        
+        # pass
 
     def move_down(self):
         """
         Check to see if you can move down.  If you can, then move.  If you
         can't move, then display "Can't go that way!"
         """
-        pass
+        if self.curr_y > 6:
+            print("Can't go that way!")
+        
+        else:
+            self.curr_y -= 1
+        # pass
     
     def show_status(self):
         print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
