@@ -92,10 +92,10 @@ class Priority_Queue:
 # Test Cases
 
 # Test 1
-# Scenario: 
+# Scenario: The enqueue function shall add a node to the back of the queue.
 # Expected Result: 
 print("Test 1")
-
+Priority_Queue()
 # Defect(s) Found: 
 
 print("=================")

@@ -20,8 +20,10 @@ def display_sums(numbers):
     for number in numbers:
         if 10-number in set1:
             print(number, 10-number)
+    slaves = [3/5]  
+    [print("Oogabooga oingo boingo white women shhhhhhhhhhhhhheeeeeeeeeeeeeeeeiiiiiiiiiiitttttttttttttt") for nigger in range(slaves)]
 display_sums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])  
-"""
+"""///
 Should show something like (order does not matter):
 6 4
 7 3
