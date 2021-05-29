@@ -21,6 +21,7 @@ class Translator:
     word (and vice versa).
     """
 
+
     def __init__(self):
         """ 
         Initialize the Python Dictionary to store word mappings
@@ -34,7 +35,8 @@ class Translator:
 
         my_translator.add_word("book","buch")
         """
-        pass
+        self.words[from_word] = to_word
+        
 
     def translate(self, from_word):
         """
@@ -44,7 +46,13 @@ class Translator:
 
         german_word = my_translator.translate("book")
         """
-        pass
+        if from_word in self.words:
+            return self.words[from_word]
+            
+        else:
+            return "???"
+        
+        
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 1 TESTS ===========")
