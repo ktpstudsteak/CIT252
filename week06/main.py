@@ -3,7 +3,6 @@
 #############
 
 import requests
-import json
 
 def earthquake_daily_summary():
     """
@@ -26,11 +25,8 @@ def earthquake_daily_summary():
     """    
     req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
     data = req.json() # The .json() function will convert the json data from the server to a dictionary
-    
-    for key, value in data.items():
-        print(key, ' : ', value)
 
-        
+    print(data)
         
 
 # Sample Test Cases (may not be comprehensive) 
