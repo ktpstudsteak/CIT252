@@ -134,11 +134,13 @@ def is_anagram(word1, word2):
     if any left over its not an anagram    
 
     """
+    split1 = [char for char in word1]
+
     words = dict()
 
     # Add word1 to the dictionary and get its chars in there, will be subtracted later
+    words[word1] = split1
     
-
     
     pass
 
