@@ -195,7 +195,7 @@ class Maze:
         can't move, then display "Can't go that way!"
         """
         new_pos : tuple = (self.curr_x - 1, self.curr_y)
-        self.curr_x -= 1 if self.maze_map[new_pos][0] else print('Error')
+        self.curr_x -= 1 if self.maze_map[new_pos][0] else print("Can't go that way!")
 
     def move_right(self):
         """
@@ -203,7 +203,7 @@ class Maze:
         can't move, then display "Can't go that way!"
         """     
         new_pos : tuple = (self.curr_x + 1, self.curr_y)
-        self.curr_x -= 1 if self.maze_map[new_pos][1] else print('Error')
+        self.curr_x -= 1 if self.maze_map[new_pos][1] else print("Can't go that way!")
 
     def move_up(self):
         """
@@ -211,7 +211,7 @@ class Maze:
         can't move, then display "Can't go that way!"
         """
         new_pos : tuple = (self.curr_x, self.curr_y + 1)
-        self.curr_x -= 1 if self.maze_map[new_pos][2] else print('Error')
+        self.curr_x -= 1 if self.maze_map[new_pos][2] else print("Can't go that way!")
 
     def move_down(self):
         """
@@ -219,7 +219,7 @@ class Maze:
         can't move, then display "Can't go that way!"
         """
         new_pos : tuple = (self.curr_x, self.curr_y - 1)
-        self.curr_x -= 1 if self.maze_map[new_pos][3] else print('Error')
+        self.curr_x -= 1 if self.maze_map[new_pos][3] else print("Can't go that way!")
     
     def show_status(self):
         print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
@@ -313,7 +313,15 @@ def earthquake_daily_summary():
     req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
     data = req.json() # The .json() function will convert the json data from the server to a dictionary
 
-    # ADD YOUR CODE HERE
+    feat_list : list = data['features']
+    prop : list = [pro['properties'] for pro in feat_list]
+    places : list = [plc['place'] for plc in prop]
+    mag : list = [ma['mag'] for ma in prop]
+    
+    asdf = lambda list1, list2 : (str.format('Location: {} : Magnitude: {}', list1, list2))
+    map_asdf = list(map(asdf, places, mag))
+
+    [print(re) for re in map_asdf]
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 5 TESTS ===========")

@@ -1,131 +1,59 @@
-class Maze:
+import requests
+
+def print_nested_dict(dict_obj, indent = 0):
+    ''' Pretty Print nested dictionary with given indent level  
+    '''
+    # Iterate over all key-value pairs of dictionary
+    for key, value in dict_obj.items():
+        # If value is dict type, then print nested dict 
+        if isinstance(value, dict):
+            print(' ' * indent, key, ':', '{')
+            print_nested_dict(value, indent + 4)
+            print(' ' * indent, '}')
+        else:
+            print(' ' * indent, key, ':', value)
+def display_dict(dict_obj):
+    ''' Pretty print nested dictionary
+    '''
+    print('{')
+    print_nested_dict(dict_obj, 4)
+    print('}')
+
+def earthquake_daily_summary():
     """
-    Defines a maze using a dictionary.  The dictionary is provided by the
-    user when the Maze object is created.  The dictionary will contain the
-    following mapping:
-
-    (x,y) : (left, right, up, down)
-
-    'x' and 'y' are integers and represents locations in the maze.
-    'left', 'right', 'up', and 'down' are boolean are represent valid directions
-
-    If a direction is False, then we can assume there is a wall in that direction.
-    If a direction is True, then we can proceed.  
-
-    If there is a wall, then display "Can't go that way!".  If there is no wall,
-    then the 'curr_x' and 'curr_y' values should be changed.
-    """
-
-    def __init__(self, maze_map : dict):
-        """
-        Initialize the map.  We assume that (1,1) is a valid location in
-        the maze.
-        """
-        self.maze_map : dict = maze_map
-        self.curr_x : int = 1
-        self.curr_y : int = 1
-
-    def move_left(self):
-        """
-        Check to see if you can move left.  If you can, then move.  If you
-        can't move, then display "Can't go that way!"
-        """
-        pos : tuple = (self.curr_x, self.curr_y)
-        print(self.curr_x - 1, self.curr_y) if self.maze_map[pos][0] else print('Error')
-        if self.maze_map[pos][0]:
-            self.curr_x -= 1
-
-    def move_right(self):
-        """
-        Check to see if you can move right.  If you can, then move.  If you
-        can't move, then display "Can't go that way!"
-        """     
-        pos : tuple = (self.curr_x, self.curr_y)
-        print(self.curr_x + 1, self.curr_y) if self.maze_map[pos][1] else print('Error')
-        if self.maze_map[pos][1]:
-            self.curr_x += 1
-
-    def move_up(self):
-        """
-        Check to see if you can move up.  If you can, then move.  If you
-        can't move, then display "Can't go that way!"
-        """
-        
-        pos : tuple = (self.curr_x, self.curr_y)
-        print(self.curr_x, self.curr_y + 1) if self.maze_map[pos][2] else print('Error')
-        if self.maze_map[pos][2]:
-            self.curr_y -= 1
-
-    def move_down(self):
-        """
-        Check to see if you can move down.  If you can, then move.  If you
-        can't move, then display "Can't go that way!"
-        """
-        pos : tuple = (self.curr_x, self.curr_y)
-        print(self.curr_x, self.curr_y - 1) if self.maze_map[pos][3] else print('Error')
-        if self.maze_map[pos][3]:
-            self.curr_y += 1
+    This function will read JSON (Javascrip Object Notation) data from the 
+    United States Geological Service (USGS) consisting of earthquake data.
+    The data will include all earthquakes in the current day.
     
-    def show_status(self):
-        print("Current location (x={} , y={})".format(self.curr_x, self.curr_y))
+    JSON data is organized into a dictionary.  After reading the data using
+    the 'requests' library, this function will print out a list of all
+    earthquake locations ('place' attribute) and magnitudes ('mag' attribute).
+    Additional information about the format of the JSON data can be found 
+    at this website:  
+
+    https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+        
+    To install the requests library, run:
+       If using virtual environment: pip install requests
+       If using Windows: py -m pip install requests
+       If using Mac: pip3 install requests
+    """    
+    req = requests.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
+    data = req.json() # The .json() function will convert the json data from the server to a dictionary
+
+    feat_list : list = data['features']
+    prop : list = [pro['properties'] for pro in feat_list]
+    places : list = [plc['place'] for plc in prop]
+    mag : list = [ma['mag'] for ma in prop]
+    
+    asdf = lambda list1, list2 : (str.format('Location: {} : Magnitude: {}', list1, list2))
+    map_asdf = list(map(asdf, places, mag))
+
+    [print(re) for re in map_asdf]
+     
+    
+        
 
 # Sample Test Cases (may not be comprehensive) 
-map =  {(1,1) : (False, True, False, True),
-        (1,2) : (False, True, True, False),
-        (1,3) : (False, False, False, False),
-        (1,4) : (False, True, False, True),
-        (1,5) : (False, False, True, True),
-        (1,6) : (False, False, True, False),
-        (2,1) : (True, False, False, True),
-        (2,2) : (True, False, True, True),
-        (2,3) : (False, False, True, True),
-        (2,4) : (True, True, True, False),
-        (2,5) : (False, False, False, False),
-        (2,6) : (False, False, False, False),
-        (3,1) : (False, False, False, False),
-        (3,2) : (False, False, False, False),
-        (3,3) : (False, False, False, False),
-        (3,4) : (True, True, False, True), 
-        (3,5) : (False, False, True, True),
-        (3,6) : (False, False, True, False),
-        (4,1) : (False, True, False, False),
-        (4,2) : (False, False, False, False),
-        (4,3) : (False, True, False, True),
-        (4,4) : (True, True, True, False),
-        (4,5) : (False, False, False, False),
-        (4,6) : (False, False, False, False),
-        (5,1) : (True, True, False, True),
-        (5,2) : (False, False, True, True),
-        (5,3) : (True, True, True, True),
-        (5,4) : (True, False, True, True),
-        (5,5) : (False, False, True, True),
-        (5,6) : (False, True, True, False),
-        (6,1) : (True, False, False, False),
-        (6,2) : (False, False, False, False),
-        (6,3) : (True, False, False, False),
-        (6,4) : (False, False, False, False),
-        (6,5) : (False, False, False, False),
-        (6,6) : (True, False, False, False)}
-
-print("\n=========== PROBLEM 4 TESTS ===========")
-maze = Maze(map)
-maze.show_status() # Should be at (1,1)
-maze.move_up() # Error
-maze.move_left() # Error
-maze.move_right() 
-maze.move_right() # Error
-maze.move_down()
-maze.move_down()
-maze.move_down()
-maze.move_right()
-maze.move_right()
-maze.move_up()
-maze.move_right()
-maze.move_down()
-maze.move_left()
-maze.move_down() # Error
-maze.move_right()
-maze.move_down()
-maze.move_down()
-maze.move_right()
-maze.show_status() # Should be at (6,6)
+print("\n=========== PROBLEM 5 TESTS ===========")
+earthquake_daily_summary()
