@@ -200,7 +200,21 @@ class LinkedList:
         Searrch for all instances of 'old_value' and replace the value 
         to 'new_value'.
         """
-        pass
+        # Results are stuck as the first test case. Not sure why. Maybe something with loop?
+        current = self.head
+
+        while current is not None:
+            if current.data == old_value:
+                current.data = old_value
+                return
+            current = current.next
+
+        #If the head holds the value to delete
+        # if current is not None:
+            # if current.data == old_value:
+                # self.head = current.next
+                # current = None
+                # return
 
     #################
     # End Problem 4 #
@@ -221,8 +235,15 @@ class LinkedList:
     def __reversed__(self):
         """
         Iterate backward through the Linked List
+
+        THIS WORKS, BUT IS PULLING THE WRONG LIST
+        IT IS PULLING LIST:
+        [5, 6, 4, 3, 3.5, 2, 2, 2, 1]
         """
-        yield "???"  # Replace this when you implement your solution
+        current = self.tail
+        while current is not None:
+            yield current.data  
+            current = current.prev
 
     #################
     # End Problem 5 #
