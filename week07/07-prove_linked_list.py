@@ -8,6 +8,9 @@ to post it online.  Storage into a personal and private repository (e.g. private
 GitHub repository, unshared Google Drive folder) is acceptable.
 """
 
+from typing import NewType
+
+
 class LinkedList:
     """
     Implement the LinkedList data structure.  The Node class below is an 
@@ -15,7 +18,6 @@ class LinkedList:
     the outer class.  To create a Node object, we will need to 
     specify LinkedList.Node
     """
-
     class Node:
         """
         Each node of the linked list will have data and links to the 
@@ -66,7 +68,27 @@ class LinkedList:
         Insert a new node at the back (i.e. the tail) of the 
         linked list.
         """
-        pass
+        new_node = LinkedList.Node(value)
+        # Check to see if whole list is empty
+
+    
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        
+        else:
+
+            # Create connection from new node to previous tail
+            new_node.prev = self.tail
+
+            # Create pointer from previous tail to new node
+            self.tail.next = new_node
+
+            # Make new node self.tail
+            self.tail = new_node
+        print(self.head)
+        print(self.tail)
+
 
     #################
     # End Problem 1 #
@@ -95,7 +117,14 @@ class LinkedList:
         """
         Remove the last node (i.e. the tail) of the linked list.
         """
-        pass
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+
+        elif self.tail is not None:
+            self.tail.prev.next = None
+            self.tail = self.tail.prev
+        
 
     #################
     # End Problem 2 #
@@ -133,7 +162,31 @@ class LinkedList:
         """
         Remove the first node that contains 'value'.
         """
-        pass
+        current = self.head
+
+        #If the head holds the value to delete
+        if current is not None:
+            if current.data == value:
+                self.head = current.next
+                current = None
+                return
+
+        # Search for the value being yeeted, keep track of the previous node as prev.next needs to be messed with 
+        while current is not None:
+            if current.data == value:
+                break
+            prev = current
+            current = current.next
+            
+
+        # If value not in list
+        if current == None:
+            return
+        
+        #unlink node
+        prev.next = current.next
+
+        current = None
 
     #################
     # End Problem 3 #
