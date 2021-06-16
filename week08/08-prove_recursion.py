@@ -21,7 +21,14 @@ def sum_squares_recursive(n):
     to identify a base case (terminating case).  If the value of
     n <= 0, just return 0.   A loop should not be used.
     """
-    pass
+        # for numbers in n:
+        # return n**2 + (n+1)**2
+    # pass
+    if n <= 0:
+        return 0 
+
+    else:
+        return n**2 + sum_squares_recursive(n-1)
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 1 TESTS ===========")
@@ -157,6 +164,9 @@ def count_ways_to_climb(s, remember = None):
     The last test case is commented out because it will not work
     until the memoization is implemented.
     """
+    if remember is None:
+        remember = dict()
+
     # Base Cases
     if s == 0:
         return 0
@@ -165,11 +175,18 @@ def count_ways_to_climb(s, remember = None):
     elif s == 2:
         return 2
     elif s == 3:
-        return 4
+        return 4    #Ask about why this is 4 & not 3
+
+    # Check if we have solved this one before
+    if s in remember:
+        return remember[s]
 
     # Solve using recursion
     else:
-        ways = count_ways_to_climb(s-1) + count_ways_to_climb(s-2) + count_ways_to_climb(s-3)
+        ways = count_ways_to_climb(s-1, remember) + count_ways_to_climb(s-2, remember) + count_ways_to_climb(s-3, remember)
+
+        remember[s] = ways
+
         return ways
 
 # Sample Test Cases (may not be comprehensive) 
@@ -177,7 +194,7 @@ print("\n=========== PROBLEM 3 TESTS ===========")
 print(count_ways_to_climb(5))   # 13
 print(count_ways_to_climb(20))  # 121415
 # Uncomment out the test below after implementing memoization.  It won't work without it.
-#print(count_ways_to_climb(100))  # 180396380815100901214157639
+print(count_ways_to_climb(100))  # 180396380815100901214157639
 
 #############
 # Problem 4 #
