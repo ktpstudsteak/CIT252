@@ -13,6 +13,9 @@ This solution should not be shared with students.
 # Problem 1 #
 #############
 
+from week08.workingcode import find
+
+
 def sum_squares_recursive(n):
     """
     Using recursion, find the sum of 1^2 + 2^2 + 3^2 + ... + n^2
@@ -220,8 +223,29 @@ def wildcard_binary(pattern):
     strings for a given pattern.  You might find 
     some of the Python str functions like find 
     and replace to be useful in solving this problem.
+
+    There should be n^2 results where n is the number of wildcards
     """
-    pass
+
+    patternChanged = pattern[:]
+
+    if pattern.find("*") == 0:
+        print(pattern)
+        return
+    
+    else:
+        for i in range(len(pattern)):
+            # replace with 0 and recurssion timmeeee boi
+            if pattern[i] == "*":
+                
+                patternChanged[i] = '0'
+                wildcard_binary(patternChanged)
+
+                # same thing but with 1
+                pattern[i] =  '1'
+                wildcard_binary(patternChanged)
+
+
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 4 TESTS ===========")
