@@ -40,23 +40,26 @@ print(sum_squares_recursive(100)) # 338350
 #############
 
 def permutations_choose(letters, size, word=""):
-    """
-    Using recursion print permutations of length
-    'size' from a list of 'letters'.  This function
-    should assume that each letter is unique (i.e. the 
-    function does not need to find unique permutations).
 
-    In mathematics, we can calculate the number of permutations
-    using the formula: len(letters)! / (len(letters) - size)!
+	if len(word) == size:   # Base Case
+		print(word)  
 
-    For example, if letters was [A,B,C] and size was 2 then
-    the following would display: AB, AC, BA, BC, CA, CB (might be in 
-    a different order).
+	else:
+		# Try adding each of the available letters
+		# to the 'word_so_far' and add up all the
+		# resulting permutations.
 
-    You can assume that the size specified is always valid (between 1 
-    and the length of the letters list).
-    """
-    pass
+		for index in range(len(letters)):
+			# Make a copy of the letters to pass to the
+			# the next call to permutations.  We need
+			# to remove the letter we just added before
+			# we call permutations again.
+
+			letters_left = letters[:]
+			del letters_left[index]
+
+			# Add the new letter to the word we have so far
+			permutations_choose(letters_left, size, word + letters[index])
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 2 TESTS ===========")

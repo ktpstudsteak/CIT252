@@ -1,30 +1,61 @@
+def permutations(letters, word=""):
 
-def fibonacci(n, remember = None):
-    # If this is the first time calling the function, then
-    # we need to create the dictionary.
-    if remember is None:
-        remember = dict()
+	if len(letters) == 0:   # Base Case
+		print(word)  
 
-    # Base Case
-    if n <= 2:
-        return 1
+	else:
+		# Try adding each of the available letters
+		# to the 'word_so_far' and add up all the
+		# resulting permutations.
 
-    # Check if we have solved this one before
-    if n in remember:
-        return remember[n]
+		for index in range(len(letters)):
+			# Make a copy of the letters to pass to the
+			# the next call to permutations.  We need
+			# to remove the letter we just added before
+			# we call permutations again.
 
-    # Otherwise solve with recursion
-    result = fibonacci(n-1, remember) + fibonacci(n-2, remember)
+			letters_left = letters[:]
+			del letters_left[index]
 
-    # Remember result for potential later use
-    remember[n] = result
-    return result
+			# Add the new letter to the word we have so far
+			permutations(letters_left, word + letters[index])
 
-print(fibonacci(1))    # 1
-print(fibonacci(2))    # 1
-print(fibonacci(3))    # 2
-print(fibonacci(4))    # 3
-print(fibonacci(10))   # 55
-print(fibonacci(100))  # 354224848179261915075 (This one will
-                       # not work if you don't have the 
-                       # 'remember' dictionary implemented).
+permutations(list("ABC"))
+""" 
+Results:
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+"""
+
+permutations(list("ABCD"))
+"""
+Results:
+ABCD
+ABDC
+ACBD
+ACDB
+ADBC
+ADCB
+BACD
+BADC
+BCAD
+BCDA
+BDAC
+BDCA
+CABD
+CADB
+CBAD
+CBDA
+CDAB
+CDBA
+DABC
+DACB
+DBAC
+DBCA
+DCAB
+DCBA
+"""
