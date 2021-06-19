@@ -106,7 +106,34 @@ class BST:
         represented by 'node'.  This function is intended
         to be called the first time by the __contains__ function.
         """
-        pass
+        if node != None:
+            if data == node.data:
+                # print(node.data)
+                return True
+            elif node.data < data:
+                if node.right == None:
+                        return False
+                else:
+                    return self._contains(data, node.right)
+            else:
+                if node.left == None:
+                    return False
+                else:
+                    return  self._contains(data, node.left)
+
+
+
+                
+            # else:
+            #     if data < node.data:
+            #         self._contains(data, node.left)
+            #         return 
+
+            #     elif data > node.data:
+            #         self._contains(data, node.right)
+            #         return
+            #     else:
+            #         return False
 
     #################
     # End Problem 2 #
