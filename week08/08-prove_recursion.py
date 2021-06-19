@@ -325,14 +325,20 @@ def solve_maze(maze, x=0, y=0, curr_path=None):
     """
     Use recursion to print all paths that start at (0,0) and end at the
     'end' square.
+
+    curr_path.append((x,y))
+
+    curr_path2 = curr_path[:]
+
+    make 4 curr_paths for each direction/possible move and pass into funtion
     """
 
     # If this is the first time running the function, then we need
     # to initialize the curr_path list.
     if curr_path is None:
-        curr_path = []
+        curr_path = [] 
 
-    # ADD CODE HERE    
+    
 
 
 # Sample Test Cases (may not be comprehensive) 
