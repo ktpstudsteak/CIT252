@@ -60,24 +60,26 @@ class BST:
         represented by 'node'.  This function is intended to be
         called the first time by the insert function.
         """
-        if data < node.data:
-            # The data belongs on the left side.
-            if node.left is None:
-                # We found an empty spot
-                node.left = BST.Node(data)
-            else:
-                # Need to keep looking.  Call _insert
-                # recursively on the left sub-tree.
-                self._insert(data, node.left)
-        else:
-            # The data belongs on the right side.
-            if node.right is None:
-                # We found an empty spot
-                node.right = BST.Node(data)
-            else:
-                # Need to keep looking.  Call _insert
-                # recursively on the right sub-tree.
-                self._insert(data, node.right)
+        if node != None:    
+            if data != node.data:
+                if data < node.data:
+                    # The data belongs on the left side.
+                    if node.left is None:
+                        # We found an empty spot
+                        node.left = BST.Node(data)
+                    else:
+                        # Need to keep looking.  Call _insert
+                        # recursively on the left sub-tree.
+                        self._insert(data, node.left)
+                else:
+                    # The data belongs on the right side.
+                    if node.right is None:
+                        # We found an empty spot
+                        node.right = BST.Node(data)
+                    else:
+                        # Need to keep looking.  Call _insert
+                        # recursively on the right sub-tree.
+                        self._insert(data, node.right)
     
     #################
     # End Problem 1 #
@@ -181,7 +183,10 @@ class BST:
         This function is intended to be called the first time by 
         the __reversed__ function.        
         """
-        yield "???"  # Replace this when you implement your solution
+        if node is not None:
+            yield from self._traverse_backward(node.right)
+            yield node.data
+            yield from self._traverse_backward(node.left)
 
     #################
     # End Problem 3 #
