@@ -246,7 +246,16 @@ class BST:
         This function intended to be called the first time by 
         get_height.
         """
-        pass
+        if node is None:
+            return 0
+        else:
+            right = self._get_height(node.right)
+            left = self._get_height(node.left)
+            return 1 + max([left, right])
+
+        
+
+
 
     #################
     # End Problem 4 #
@@ -299,6 +308,7 @@ def _insert_middle(sorted_list, first, last, bst):
     The purpose for having the first and last parameters is so that we do 
     not need to create new sublists when we make recursive calls.  Avoid 
     using list slicing to create sublists to solve this problem.
+
 
     """
     pass
