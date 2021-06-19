@@ -13,9 +13,6 @@ This solution should not be shared with students.
 # Problem 1 #
 #############
 
-from week08.workingcode import find
-
-
 def sum_squares_recursive(n):
     """
     Using recursion, find the sum of 1^2 + 2^2 + 3^2 + ... + n^2
@@ -199,6 +196,7 @@ def count_ways_to_climb(s, remember = None):
 print("\n=========== PROBLEM 3 TESTS ===========")
 print(count_ways_to_climb(5))   # 13
 print(count_ways_to_climb(20))  # 121415
+
 # Uncomment out the test below after implementing memoization.  It won't work without it.
 print(count_ways_to_climb(100))  # 180396380815100901214157639
 
@@ -227,23 +225,22 @@ def wildcard_binary(pattern):
     There should be n^2 results where n is the number of wildcards
     """
 
+        # copying pattern
     patternChanged = pattern[:]
 
-    if pattern.find("*") == 0:
+    # base case
+    if pattern.find("*") == -1:
         print(pattern)
-        return
+        
     
     else:
-        for i in range(len(pattern)):
-            # replace with 0 and recurssion timmeeee boi
-            if pattern[i] == "*":
-                
-                patternChanged[i] = '0'
-                wildcard_binary(patternChanged)
+            patternChanged = pattern.replace('*', '0', 1)
+            # print(pattern + "     Im from 0")
+            wildcard_binary(patternChanged)
 
-                # same thing but with 1
-                pattern[i] =  '1'
-                wildcard_binary(patternChanged)
+            patternChanged = pattern.replace('*', '1', 1)
+            # print(pattern + "     Im from 1")
+            wildcard_binary(patternChanged)
 
 
 

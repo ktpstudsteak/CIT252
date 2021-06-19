@@ -22,26 +22,24 @@ def wildcard_binary(pattern):
 
     There should be n^2 results where n is the number of wildcards
     """
-
+    # copying pattern
     patternChanged = pattern[:]
 
-    if pattern.find("*") == 0:
+    # base case
+    if pattern.find("*") == -1:
         print(pattern)
-        return
+        
     
     else:
-        for i in range(len(pattern)):
-            # replace with 0 and recurssion timmeeee boi
-            if pattern[i] == "*":
-                
-                patternChanged[i] = '0'
-                wildcard_binary(patternChanged)
+            patternChanged = pattern.replace('*', '0', 1)
+            # print(pattern + "     Im from 0")
+            wildcard_binary(patternChanged)
 
-                # same thing but with 1
-                pattern[i] =  '1'
-                wildcard_binary(patternChanged)
-                
-                
+            patternChanged = pattern.replace('*', '1', 1)
+            # print(pattern + "     Im from 1")
+            wildcard_binary(patternChanged)
+
+
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 4 TESTS ===========")
 wildcard_binary("110*0*")
