@@ -19,15 +19,11 @@ If you have multiple items you need to store without having to care about order,
 ## Examples
 
 ```
-# Note the two "apple" items. When you print, how many "apples" are there?
 
-thisset = {"apple", "banana", "cherry", "apple"}
-
-print(thisset)
 ```
 <br />
 
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods.
 
-Write code for this later
+See `setProblem.py` if you get stuck.
