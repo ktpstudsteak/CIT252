@@ -22,13 +22,12 @@ Queues are great for any FIFO operation, such as people on a waitlist, or keepin
 * pop
 * popleft
 
+See `queueExample.py` for examples. Feel free to play around with them!
+
 <br />
 
 ## Problem
 Doctor Who needs help keeping track of who's next in line. He keeps losing his printout and would like to have it digitally. 
-
 Create a queue that will store the names of any patient names supplied.
 
-Write code for this later
-<br />
-<br />
+See `queueProblem.py` if you get stuck.
