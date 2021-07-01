@@ -30,8 +30,9 @@ Trees can be used for efficient searching and organizing of data. Especially whe
 <br />
 
 ## Examples
-Write later
+See `treeExample.py` for examples. Feel free to play around with them!
+
 <br />
 
 ## Problem
-Write something about adding stuff and traversing a tree
+<!-- Write a problem about adding items to and traversing a tree -->

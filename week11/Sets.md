@@ -18,9 +18,8 @@ If you have multiple items you need to store without having to care about order,
 
 ## Examples
 
-```
+See `setExample.py` for examples. Feel free to play around with them!
 
-```
 <br />
 
 ## Problem
