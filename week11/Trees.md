@@ -27,7 +27,7 @@ Trees can be used for efficient searching and organizing of data. Especially whe
 
 ## Performance
 
-Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(logN) 
+Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(logN). 
 
 <br />
 
