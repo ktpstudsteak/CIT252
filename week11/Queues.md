@@ -1,5 +1,3 @@
-Queues
-
 # Queues
 
 ## What are queues?
@@ -9,6 +7,10 @@ Queues are basically the opposite of a stack. Stacks operate under a last in, fi
 
 A good example is a pipe that transports basketballs. The new basketballs are put in at the end (enqueueing) and are only taken out at the front (dequeueing). You can't open the pipe and take out a basketball.
 <br />
+
+The following picture maight help clarify this:
+
+![queueing picture](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/02/Queue.png)
 
 ## Queue use cases	
 Queues are great for any FIFO operation, such as people on a waitlist, or keeping track of orders. 

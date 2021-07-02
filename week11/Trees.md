@@ -1,5 +1,3 @@
-Trees
-
 # Trees
 
 ## What are trees?
