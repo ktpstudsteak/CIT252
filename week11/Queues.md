@@ -16,6 +16,15 @@ The following picture maight help clarify this:
 Queues are great for any FIFO operation, such as people on a waitlist, or keeping track of orders. 
 <br />
 
+
+## Performance
+
+Different queue operations have different BigO notations
+
+<!-- Insert table from reading and explain -->
+
+
+
 ## Examples
 * enqueue
 * dequeue

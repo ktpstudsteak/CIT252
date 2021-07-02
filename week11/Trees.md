@@ -25,6 +25,10 @@ Consider this image:
 ## Tree use cases
 Trees can be used for efficient searching and organizing of data. Especially when combined with recursion.
 
+## Performance
+
+Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(logN) 
+
 <br />
 
 ## Examples
