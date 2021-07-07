@@ -12,16 +12,22 @@ The following picture maight help clarify this:
 
 ![queueing picture](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/02/Queue.png)
 
-## Queue use cases	
-Queues are great for any FIFO operation, such as people on a waitlist, or keeping track of orders. 
+## Queue use cases
+Queues are great for any FIFO operation, such as people on a waitlist, or keeping track of orders.
 <br />
 
 
 ## Performance
 
-Different queue operations have different BigO notations
+Different queue operations have different BigO notations. To borrow from the reading:
 
-<!-- Insert table from reading and explain -->
+| Common Queue Operation | Description                                                                                | Python Code                                                                 | Performance                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+|  |
+| enqueue(value)         | Adds "value" to the back of the queue                                                      | `my_queue.append(value)`                                                    | O(1) - Performance of adding to the end of the dynamic array                         |
+| dequeue()              | Two approaches: Remove and return the item from the front of the queue; or pop off index 0 | `value = my_queue[0]<br>del my_queue[0]`<br>or<br>`value = my_queue.pop(0)` | O(n) - Performance of obtaining and removing from the beginning of the dynamic array |
+| size()                 | Return the size of the queue                                                               | `length = len(my_queue)`                                                    | O(1) - Performance of returning the size of the dynamic array                        |
+| empty()                | Returns true if the length of the queue is zero.                                           | `if len(my_queue) == 0:`                                                    | O(1) - Performance of checking the size of the dynamic array                         |
 
 
 
@@ -38,7 +44,7 @@ See `queueExample.py` for examples. Feel free to play around with them!
 <br />
 
 ## Problem
-Doctor Who needs help keeping track of who's next in line. He keeps losing his printout and would like to have it digitally. 
+Doctor Who needs help keeping track of who's next in line. He keeps losing his printout and would like to have it digitally.
 Create a queue that will store the names of any patient names supplied.
 
 See `queueProblem.py` if you get stuck.
