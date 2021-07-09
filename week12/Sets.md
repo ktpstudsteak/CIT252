@@ -37,4 +37,4 @@ print(thisset)
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods.
 
-See `setProblem.py` if you get stuck.
+See [setProblem.py](./setProblem.py) if you get stuck.
