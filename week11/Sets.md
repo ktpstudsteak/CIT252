@@ -24,11 +24,17 @@ Because sets hash their items when comparing, it is extremely efficiant and has 
 
 ## Examples
 
-See `setExample.py` for examples. Feel free to play around with them!
+``` python
+
+thisset = {"apple", "banana", "cherry", "apple"}
+
+print(thisset)
+
+```
 
 <br />
 
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods.
 
-See `setProblem.py` if you get stuck.
+See [setProblem.py](./setProblem.py) if you get stuck.
