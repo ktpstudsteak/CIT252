@@ -34,15 +34,39 @@ Because sets hash their items when comparing, it is extremely efficiant and has 
 
 ## Examples
 
+### Creating Sets
 ``` python
 # Creating and defining a set
 
-thisset = {"apple", "banana", "cherry", "apple"}
+thisSet = {"apple", "banana", "cherry", "apple"}
 
-print(thisset)
+# Creating Empty Sets
+emptySet = set()
+
+print(thisSet)
+print(emptySet)
+```
+### Apending to a Set
+``` python
+set1 = {"apple", "banana", "cherry"}
+
+# Use the .append method to add items
+set1.append("grapes")
+
+print(set1)
 
 ```
 
+### Finding Length of a Set
+``` python
+set1 = {"apple", "banana", "cherry"}
+
+# Use the len() function to find the length of a set
+# There are 3 items in the list. What is the result of the print statement?
+Print((len(set1))
+```
+
+### Set Unions
 ``` python
 # Union using "|" symbol
 
@@ -63,7 +87,7 @@ set2 = {"onion", "potato", "carrot"}
 print(set1.union(set2))
 
 ```
-
+### Set Intersections
 ``` python
 # Intersection using "- " symbol
 
@@ -84,13 +108,14 @@ set2 = {"onion", "potato", "carrot", "apple"}
 print(set1.difference(set2))
 
 ```
-
-Notice how the unions combine both sets and intersections find thier common parts. 
+Notice how the unions combine both sets and intersections find thier common parts.
 
 
 <br />
 
 ## Problem
-Write a set called `snacks` that includes at least 3 of your favorite snack foods.
+Write a set called `snacks` that includes at least 3 of your favorite snack foods. 
+
+Then write a set 
 
 See [setProblem.py](./setProblem.py) if you get stuck.
