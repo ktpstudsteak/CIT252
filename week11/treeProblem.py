@@ -1,4 +1,3 @@
-# Write a problem about adding items to and traversing a tree
-# Write code for the problem
+# Using the provided code to create functions to insert, delete, and search data in the BST.
 
-# ** FINISH WRITING CODE **
+#Create the BST and node class
