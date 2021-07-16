@@ -92,7 +92,7 @@ print(set1.union(set2))
 # Intersection using "- " symbol
 
 set1 = {"apple", "banana", "cherry", "onion"}
-set2 = {"onion", "potato", "carrot", "apple"}
+set2 = {"onion", "potato", "carrot", "apple"} 
 
 # Print Intersection
 print(set1 - set2)
@@ -116,6 +116,6 @@ Notice how the unions combine both sets and intersections find thier common part
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods. 
 
-Then write a set 
+Append 3 more snacks 
 
 See [setProblem.py](./setProblem.py) if you get stuck.
