@@ -116,6 +116,10 @@ Notice how the unions combine both sets and intersections find thier common part
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods. 
 
-Append 3 more snacks 
+Append 3 more snacks.
+
+Create another set with a name of your choice and add at least 3 new items.
+
+Make a union with both sets.
 
 See [setProblem.py](./setProblem.py) if you get stuck.
