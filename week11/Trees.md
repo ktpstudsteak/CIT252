@@ -32,6 +32,10 @@ Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(
 <br />
 
 ## Examples
+Here are examples for inserting items to a BST, get the tree height, and search the tree for data. 
+
+See [treeExample.py](./treeExample.py) for these examples in full context.
+
 ### Inserting into a BST
 
 ```python
