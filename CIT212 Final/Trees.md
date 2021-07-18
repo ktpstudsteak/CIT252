@@ -121,7 +121,8 @@ Using the provided code in [treeProblem.py](./treeProblem.py) create functions t
 
 ## Jump to Section:
 
-[./Welcome.md](#1-this-is-a-test)
+#### Welcome
+[./Welcome.md](/ktpstudsteak/repository_name/wiki/page_name#title)
 
 #### Queues
 * [Queues](./Queues.md)
