@@ -63,6 +63,19 @@ class BST:
                         # recursively on the right sub-tree.
                         self._insert(data, node.right)
 
+    # __iter__ and _traverse_forward need to be here to work. Even though they are not called
+    def __iter__(self):
+        """
+        Perform a forward traversal (in order traversal) starting from 
+	    the root of the BST.  This is called a generator function.
+        This function is called when a loop	is performed:
+
+        for value in my_bst:
+            print(value)
+
+        """
+        yield from self._traverse_forward(self.root)  # Start at the root
+
     def _traverse_forward(self, node):
         """
         Does a forward traversal (in-order traversal) through the 
@@ -143,12 +156,15 @@ class BST:
         """       
         return self._contains(data, self.root)  # Start at the root
 
+
+    """
+    Searching the Tree
+    """
+
     def _contains(self, data, node):
         """
         This funciton will search for a node that contains
-        'data'.  The current sub-tree being search is 
-        represented by 'node'.  This function is intended
-        to be called the first time by the __contains__ function.
+        data provided.
         """
         if node != None:
             if data == node.data:
@@ -164,11 +180,13 @@ class BST:
                     return False
                 else:
                     return  self._contains(data, node.left)
+
+
                     
         
 
 # Test insert function
-print("\n Testing Insertion: \n")
+print("\n Testing Insertion:")
 tree = BST()
 tree.insert(5)
 tree.insert(3)
@@ -182,7 +200,7 @@ for x in tree:
     print(x)  # 1, 3, 4, 5, 6, 7, 10
 
 # Test get height function
-print("\n Testing Insertion: \n")
+print("\n Testing Height:")
 print(tree.get_height()) # 3
 tree.insert(6)
 print(tree.get_height()) # 3
@@ -190,3 +208,9 @@ tree.insert(12)
 print(tree.get_height()) # 4
 
 # Test search function
+print("\n Testing Searching:")
+print(3 in tree) # True
+print(2 in tree) # False
+print(7 in tree) # True
+print(6 in tree) # True
+print(9 in tree) # False
