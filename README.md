@@ -1,2 +1,2 @@
-# CIT252
+# CSE252
 Data Stuctures and stuff
