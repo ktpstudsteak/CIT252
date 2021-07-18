@@ -12,3 +12,18 @@ This is the final project for CSE212. It is a guide that walks you through queue
 ### Credit 
 <!--  Keep if needed -->
 Guide written by Kaden Payne.
+
+### Jump to Section:
+* [Queues](./Queues.md)
+* [Sets](./Sets.md)
+* [Trees](./Trees.md)
+
+### Jump to Example:
+* [Queue Examples](./queueExample.py)
+* [Set Examples](./setExample.py)
+* [Tree Examples](./treeExample.py)
+
+### Jump to Problem:
+* [Queue  Problems](./queueProblem.py)
+* [Set  Problems](./setProblem.py)
+* [Tree  Problems](./treeProblem.py)
