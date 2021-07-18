@@ -1,20 +1,8 @@
-"""
-CSE212 
-(c) BYU-Idaho
-09-Prove - Problems
-
-It is a violation of BYU-Idaho Honor Code to post or share this code with others or 
-to post it online.  Storage into a personal and private repository (e.g. private
-GitHub repository, unshared Google Drive folder) is acceptable.
-"""
+# Here is an example of a binary search tree:
 
 class BST:
-    """
-    Implement the Binary Search Tree (BST) data structure.  The Node 
-    class below is an inner class.  An inner class means that its real 
-    name is related to the outer class.  To create a Node object, we will 
-    need to specify BST.Node
-    """
+    # This defines what the BST will be. Notice that we delclare the Node class (ie what nodes are) below
+
 
     class Node:
         """
@@ -85,59 +73,64 @@ class BST:
     # End Problem 1 #
     #################
 
-    def __contains__(self, data):
-        """ 
-        Checks if data is in the BST.  This function
-        supports the ability to use the 'in' keyword:
+    # Adding __iter__, _traverse_forware
 
-        if 5 in my_bst:
-            ("5 is in the bst")
+    def __iter__(self):
+        """
+        Perform a forward traversal (in order traversal) starting from 
+	    the root of the BST.  This is called a generator function.
+        This function is called when a loop	is performed:
+
+        for value in my_bst:
+            print(value)
 
         """
-        return self._contains(data, self.root)  # Start at the root
-
-    ###################
-    # Start Problem 2 #
-    ###################
-    def _contains(self, data, node):
-        """
-        This funciton will search for a node that contains
-        'data'.  The current sub-tree being search is 
-        represented by 'node'.  This function is intended
-        to be called the first time by the __contains__ function.
-        """
-        if node != None:
-            if data == node.data:
-                # print(node.data)
-                return True
-            elif node.data < data:
-                if node.right == None:
-                        return False
-                else:
-                    return self._contains(data, node.right)
-            else:
-                if node.left == None:
-                    return False
-                else:
-                    return  self._contains(data, node.left)
+        yield from self._traverse_forward(self.root)  # Start at the root
 
 
+        def _traverse_forward(self, node):
+            """
+            Does a forward traversal (in-order traversal) through the 
+            BST.  If the node that we are given (which is the current
+            sub-tree) exists, then we will keep traversing on the left
+            side (thus getting the smaller numbers first), then we will 
+            provide the data in the current node, and finally we will 
+            traverse on the right side (thus getting the larger numbers last).
 
-                
-            # else:
-            #     if data < node.data:
-            #         self._contains(data, node.left)
-            #         return 
+            The use of the 'yield' will allow this function to support loops
+            like:
 
-            #     elif data > node.data:
-            #         self._contains(data, node.right)
-            #         return
-            #     else:
-            #         return False
+            for value in my_bst:
+                print(value)
 
-    #################
-    # End Problem 2 #
-    #################
+            The keyword 'yield' will return the value for the 'for' loop to
+            use.  When the 'for' loop wants to get the next value, the code in
+            this function will start back up where the last 'yield' returned a 
+            value.  The keyword 'yield from' is used when our generator function
+            needs to call another function for which a `yield` will be called.  
+            In other words, the `yield` is delegated by the generator function
+            to another function.
+
+            This function is intended to be called the first time by 
+            the __iter__ function.
+            """
+            if node is not None:
+                yield from self._traverse_forward(node.left)
+                yield node.data
+                yield from self._traverse_forward(node.right)
+        
+    # def __reversed__(self):
+    #     """
+    #     Perform a formward traversal (in order traversal) starting from 
+    #     the root of the BST.  This function is called when a the 
+    #     reversed function is called and is frequently used with a for
+    #     loop.
+
+    #     for value in reversed(my_bst):
+    #         print(value)
+
+    #     """        
+    #     yield from self._traverse_backward(self.root)  # Start at the root
 
 tree = BST()
 tree.insert(5)

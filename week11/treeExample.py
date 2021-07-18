@@ -63,7 +63,36 @@ class BST:
                         # recursively on the right sub-tree.
                         self._insert(data, node.right)
 
+    def _traverse_forward(self, node):
+        """
+        Does a forward traversal (in-order traversal) through the 
+        BST.  If the node that we are given (which is the current
+        sub-tree) exists, then we will keep traversing on the left
+        side (thus getting the smaller numbers first), then we will 
+        provide the data in the current node, and finally we will 
+        traverse on the right side (thus getting the larger numbers last).
 
+        The use of the 'yield' will allow this function to support loops
+        like:
+
+        for value in my_bst:
+            print(value)
+
+        The keyword 'yield' will return the value for the 'for' loop to
+	    use.  When the 'for' loop wants to get the next value, the code in
+	    this function will start back up where the last 'yield' returned a 
+	    value.  The keyword 'yield from' is used when our generator function
+        needs to call another function for which a `yield` will be called.  
+        In other words, the `yield` is delegated by the generator function
+        to another function.
+
+        This function is intended to be called the first time by 
+        the __iter__ function.
+        """
+        if node is not None:
+            yield from self._traverse_forward(node.left)
+            yield node.data
+            yield from self._traverse_forward(node.right)
     
     """
     Getting Tree Height
@@ -135,6 +164,7 @@ class BST:
                     return False
                 else:
                     return  self._contains(data, node.left)
+                    
         
 
 # Test insert function
