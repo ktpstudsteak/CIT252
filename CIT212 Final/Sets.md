@@ -126,6 +126,8 @@ See [setProblem.py](./setProblem.py) if you get stuck.
 
 ## Jump to Section:
 
+#### [Welcome](./Welcome.md)
+
 #### Queues
 * [Queues](./Queues.md)
 * [Queue Examples](./queueExample.py)

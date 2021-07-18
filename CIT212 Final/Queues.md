@@ -81,6 +81,8 @@ See [queueProblem.py](./queueProblem.py) if you get stuck.
 
 ## Jump to Section:
 
+#### [Welcome](./Welcome.md)
+
 #### Queues
 * [Queues](./Queues.md)
 * [Queue Examples](./queueExample.py)
