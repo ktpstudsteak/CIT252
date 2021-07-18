@@ -18,25 +18,15 @@ Guide written by Kaden Payne.
 
 #### Queues
 * [Queues](./Queues.md)
-    * [Queue Examples](./queueExample.py)
-    * [Queue  Problems](./queueProblem.py)
+* [Queue Examples](./queueExample.py)
+* [Queue  Problems](./queueProblem.py)
 
 #### Sets
 * [Sets](./Sets.md)
-    * [Set Examples](./setExample.py)
-    * [Set  Problems](./setProblem.py)
+* [Set Examples](./setExample.py)
+* [Set  Problems](./setProblem.py)
 
 #### Trees
 * [Trees](./Trees.md)
 * [Tree Examples](./treeExample.py)
-* [Tree Problems](./treeProblem.py)
-
-### Jump to Example:
-* [Queue Examples](./queueExample.py)
-* [Set Examples](./setExample.py)
-* [Tree Examples](./treeExample.py)
-
-### Jump to Problem:
-* [Queue Problems](./queueProblem.py)
-* [Set Problems](./setProblem.py)
 * [Tree Problems](./treeProblem.py)
