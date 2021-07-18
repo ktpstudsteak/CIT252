@@ -77,3 +77,21 @@ Doctor Who needs help keeping track of who's next in line. He keeps losing his p
 Create a queue that will store the names of any patient names supplied.
 
 See [queueProblem.py](./queueProblem.py) if you get stuck.
+
+
+## Jump to Section:
+
+#### Queues
+* [Queues](./Queues.md)
+* [Queue Examples](./queueExample.py)
+* [Queue  Problems](./queueProblem.py)
+
+#### Sets
+* [Sets](./Sets.md)
+* [Set Examples](./setExample.py)
+* [Set  Problems](./setProblem.py)
+
+#### Trees
+* [Trees](./Trees.md)
+* [Tree Examples](./treeExample.py)
+* [Tree Problems](./treeProblem.py)

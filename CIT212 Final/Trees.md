@@ -116,4 +116,22 @@ See [treeExample.py](./treeExample.py) for these examples in full context.
  
 
 ## Problem
-<!-- Write a problem about adding items to and traversing a tree -->
+Using the provided code in [treeProblem.py](./treeProblem.py) create functions to insert, get the tree height, and search data in the BST.
+
+
+## Jump to Section:
+
+#### Queues
+* [Queues](./Queues.md)
+* [Queue Examples](./queueExample.py)
+* [Queue  Problems](./queueProblem.py)
+
+#### Sets
+* [Sets](./Sets.md)
+* [Set Examples](./setExample.py)
+* [Set  Problems](./setProblem.py)
+
+#### Trees
+* [Trees](./Trees.md)
+* [Tree Examples](./treeExample.py)
+* [Tree Problems](./treeProblem.py)

@@ -123,3 +123,20 @@ Create another set with a name of your choice and add at least 3 new items.
 Make a union with both sets.
 
 See [setProblem.py](./setProblem.py) if you get stuck.
+
+## Jump to Section:
+
+#### Queues
+* [Queues](./Queues.md)
+* [Queue Examples](./queueExample.py)
+* [Queue  Problems](./queueProblem.py)
+
+#### Sets
+* [Sets](./Sets.md)
+* [Set Examples](./setExample.py)
+* [Set  Problems](./setProblem.py)
+
+#### Trees
+* [Trees](./Trees.md)
+* [Tree Examples](./treeExample.py)
+* [Tree Problems](./treeProblem.py)
