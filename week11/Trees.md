@@ -32,7 +32,82 @@ Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(
 <br />
 
 ## Examples
-See `treeExample.py` for examples. Feel free to play around with them!
+### Inserting into a BST
+
+```python
+    def _insert(self, data, node):
+        """
+        This function will look for a place to insert a node
+        with 'data' inside of it.  The current sub-tree is
+        represented by 'node'.  This function is intended to be
+        called the first time by the insert function.
+        """
+        if node != None:    
+            if data != node.data:
+                if data < node.data:
+                    # The data belongs on the left side.
+                    if node.left is None:
+                        # We found an empty spot
+                        node.left = BST.Node(data)
+                    else:
+                        # Need to keep looking.  Call _insert
+                        # recursively on the left sub-tree.
+                        self._insert(data, node.left)
+                else:
+                    # The data belongs on the right side.
+                    if node.right is None:
+                        # We found an empty spot
+                        node.right = BST.Node(data)
+                    else:
+                        # Need to keep looking.  Call _insert
+                        # recursively on the right sub-tree.
+                        self._insert(data, node.right)
+```
+
+### Get Tree Height
+
+```python
+    def _get_height(self, node):
+        """
+        Determine the height of the BST.  The height of a sub-tree 
+        (represented by 'node') is 1 plus the height of either the 
+        left sub-tree or the right sub-tree (whichever one is bigger).
+
+        This function intended to be called the first time by 
+        get_height.
+        """
+        if node is None:
+            return 0
+        else:
+            right = self._get_height(node.right)
+            left = self._get_height(node.left)
+            return 1 + max([left, right])
+
+```
+
+### Search the Tree
+```python
+    def _contains(self, data, node):
+        """
+        This funciton will search for a node that contains
+        data provided.
+        """
+        if node != None:
+            if data == node.data:
+                # print(node.data)
+                return True
+            elif node.data < data:
+                if node.right == None:
+                        return False
+                else:
+                    return self._contains(data, node.right)
+            else:
+                if node.left == None:
+                    return False
+                else:
+                    return  self._contains(data, node.left)
+
+```
 
 <br />
 
