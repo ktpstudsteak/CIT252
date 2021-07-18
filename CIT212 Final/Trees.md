@@ -121,7 +121,7 @@ Using the provided code in [treeProblem.py](./treeProblem.py) create functions t
 
 ## Jump to Section:
 
-#### [Welcome](./welcome.md)
+#### [Welcome](./Welcome.md)
 
 #### Queues
 * [Queues](./Queues.md)
