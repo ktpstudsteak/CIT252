@@ -20,7 +20,7 @@ Binary search trees vs balanced binary search trees
 Consider this image:
 
 ![Binary Search Tree](https://byui-cse.github.io/cse212-course/lesson09/binary_tree.jpeg)
-<br />
+ 
 
 ## Tree use cases
 Trees can be used for efficient searching and organizing of data. Especially when combined with recursion.
@@ -29,7 +29,7 @@ Trees can be used for efficient searching and organizing of data. Especially whe
 
 Binary search trees have a BigO of O(N) whereas balanced trees have a BigO of O(logN). 
 
-<br />
+ 
 
 ## Examples
 Here are examples for inserting items to a BST, get the tree height, and search the tree for data. 
@@ -113,7 +113,7 @@ See [treeExample.py](./treeExample.py) for these examples in full context.
 
 ```
 
-<br />
+ 
 
 ## Problem
 <!-- Write a problem about adding items to and traversing a tree -->
