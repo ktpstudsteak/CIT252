@@ -1,5 +1,3 @@
-Welcome
-
 # Python Tutorial
 
 ## Welcome
