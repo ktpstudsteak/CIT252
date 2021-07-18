@@ -10,7 +10,7 @@ Sets cannot have duplicates, and if any are inputted, it will automatically remo
 Sets compare their items using *hashing*.
 
 Remember, sets are **unordered**,  **unindexed**, and the items in them are **unchangeable**.
-<br />
+ 
 
 ## Set use cases
 If you have multiple items you need to store without having to care about order, use a set. 
@@ -27,7 +27,7 @@ These will all be demonstrated in the example section and in [setExample.py](./s
 
 ![Python Set Picture](https://static.thegeekstuff.com/wp-content/uploads/2019/04/python-set.png)
 
-<br />
+ 
 
 ## Performance
 Because sets hash their items when comparing, it is extremely efficiant and has a BigO of O(1).
@@ -111,7 +111,7 @@ print(set1.difference(set2))
 Notice how the unions combine both sets and intersections find thier common parts.
 
 
-<br />
+ 
 
 ## Problem
 Write a set called `snacks` that includes at least 3 of your favorite snack foods. 
