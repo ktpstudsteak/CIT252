@@ -116,4 +116,4 @@ See [treeExample.py](./treeExample.py) for these examples in full context.
 <br />
 
 ## Problem
-<!-- Write a problem about adding items to and traversing a tree -->
+Using the provided code in [treeProblem.py](./treeProblem.py) create functions to insert, get the tree height, and search data in the BST.
